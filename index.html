@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      The World's First crypto with Automated Marketing at Its Core.
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/images/dnaLogo.png" type="image/png" />
+  </head>
+  <body>
+    <div class="page-container">
+      <img src="/images/background-image.png" alt="bg image" class="bg" />
+
+      <img src="/images/dna.png" alt="bg image" class="logo" />
+
+      <div class="content">
+        <h3 class="title" data-lang="maintenanceMessage"></h3>
+        <p class="subtitle" data-lang="returningMessage"></p>
+      </div>
+    </div>
+
+    <script>
+      const translations = {
+        en: {
+          maintenanceMessage: "We’re down for maintenance",
+          returningMessage: "Be right back!",
+        },
+        es: {
+          maintenanceMessage: "Estamos fuera de servicio por mantenimiento",
+          returningMessage: "¡Volvemos enseguida!",
+        },
+        ko: {
+          maintenanceMessage: "유지관리 중입니다",
+          returningMessage: "곧 돌아오겠습니다!",
+        },
+        ja: {
+          maintenanceMessage: "メンテナンスのためダウンしています",
+          returningMessage: "すぐに戻ります!",
+        },
+        pt: {
+          maintenanceMessage: "Estamos em manutenção",
+          returningMessage: "Volto já!",
+        },
+      };
+
+      // Function to set the language dynamically
+      function setLanguage(lang) {
+        if (!translations[lang]) lang = "en"; // Default to English if language is not supported
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll("[data-lang]").forEach((el) => {
+          const key = el.getAttribute("data-lang");
+          el.textContent = translations[lang][key];
+        });
+      }
+
+      // Get the user's preferred language
+      const userLang = navigator.language.split("-")[0]; // Get language code (e.g., 'en', 'es')
+      setLanguage(userLang);
+    </script>
+  </body>
+</html>
